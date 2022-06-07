@@ -18,14 +18,17 @@ public class Driver {
         } catch(Exception ex) {
             System.out.println(ex);
         }
+        System.out.println("URI: " + uri);
 
-        // Replace the uri string with your MongoDB deployment's connection string
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
+        try (MongoClient mongoClient = MongoClients.create((String)uri)) {
             MongoDatabase database = mongoClient.getDatabase("Forms");
-            //MongoCollection<Document> collection = database.getCollection("movies");
 
+
+            //MongoCollection<Document> collection = database.getCollection("movies");
             //Document doc = collection.find(eq("title", "Back to the Future")).first();
             //System.out.println(doc.toJson());
+        } catch(Exception ex) {
+            System.out.println(ex);
         }
     }
 }
