@@ -1,34 +1,31 @@
-import com.mongodb.*;
-//import com.mongodb.client.MongoClients;
-import com.mongodb.MongoClient;
+import static com.mongodb.client.model.Filters.eq;
+
+import org.bson.Document;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-
-import com.mongodb.client.model.UpdateOptions;
-import com.mongodb.client.result.*;
-import org.bson.Document;
-import org.bson.types.ObjectId;
-
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
-
-import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Updates.*;
-
 public class Driver {
-    public static void main(String[] args) {
-        MongoClient mongo = new MongoClient("localhost", 27017);
+    public static void main(String[] args)  {
+        String uri = "";
+        try {
+            Scanner sc = new Scanner(new File("cred.txt"));
+            uri = sc.nextLine();
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
 
-        // Creating Credentials
-        MongoCredential credential;
-        credential = MongoCredential.createCredential("sampleUser", "myDb",
-                "password".toCharArray());
-        System.out.println("Connected to the database successfully");
+        // Replace the uri string with your MongoDB deployment's connection string
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("Forms");
+            //MongoCollection<Document> collection = database.getCollection("movies");
 
-        // Accessing the database
-        MongoDatabase database = mongo.getDatabase("myDb");
-        System.out.println("Credentials ::"+ credential);
+            //Document doc = collection.find(eq("title", "Back to the Future")).first();
+            //System.out.println(doc.toJson());
+        }
     }
 }
