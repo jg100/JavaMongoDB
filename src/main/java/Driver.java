@@ -20,10 +20,11 @@ public class Driver {
         }
         System.out.println("URI: " + uri);
 
-        MongoActions mongo = new MongoActions(uri, "FormBuilder");
-        DataEntry de = new DataEntry("Joel", "Giannelli","Call went well");
+        MongoActions mongo = new MongoActions(uri, "FormBuilder", "Forms");
+        //DataEntry de = new DataEntry("Joel", "Giannelli","Call went well");
+        //mongo.addEntry(de);
 
-        mongo.addEntry(de, "Forms");
+        System.out.println(mongo.getAllEntries());
 
     }
 }
