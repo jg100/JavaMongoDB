@@ -7,12 +7,10 @@ public class DataEntry {
     private String[] status;
     private int id;
 
-    public DataEntry(String firstName, String lastName, String callNotes, String[] status, int id) {
+    public DataEntry(String firstName, String lastName, String callNotes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.callNotes = callNotes;
-        this.status = status;
-        this.id = id;
     }
 
     public String getFirstName() {

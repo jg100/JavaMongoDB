@@ -2,6 +2,9 @@ import static com.mongodb.client.model.Filters.eq;
 
 import java.io.File;
 import java.util.Scanner;
+
+import backend.DataEntry;
+import backend.MongoActions;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -17,17 +20,10 @@ public class Driver {
         }
         System.out.println("URI: " + uri);
 
+        MongoActions mongo = new MongoActions(uri, "FormBuilder");
+        DataEntry de = new DataEntry("Joel", "Giannelli","Call went well");
 
+        mongo.addEntry(de, "Forms");
 
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("Forms");
-
-
-            //MongoCollection<Document> collection = database.getCollection("movies");
-            //Document doc = collection.find(eq("title", "Back to the Future")).first();
-            //System.out.println(doc.toJson());
-        } catch(Exception ex) {
-            System.out.println(ex);
-        }
     }
 }

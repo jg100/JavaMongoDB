@@ -34,6 +34,7 @@ public class MongoActions {
             System.out.println("Document has been inserted to " + collectionName);
             return true;
         }catch(Exception e) {
+            System.out.println("**** Error ******:");
             System.out.println(e);
             return false;
         }
