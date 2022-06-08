@@ -11,6 +11,8 @@ import java.util.Scanner;
 import com.mongodb.client.*;
 import org.bson.Document;
 
+import javax.print.Doc;
+
 public class MongoActions {
     private MongoClient mc;
     private MongoDatabase mdb;
@@ -45,20 +47,17 @@ public class MongoActions {
     }
 
 
-    public boolean findEntry(String name) {
-        try {
-            List<Document> entries = this.getAllEntries();
+    public Document getEntry(String name) {
 
-            for(Document doc : entries) {
+        List<Document> entries = this.getAllEntries();
 
+        for(Document doc : entries) {
+            if(doc.containsValue(name)) {
+                return doc;
             }
-
-
-        } catch(Exception ex) {
-            System.out.println("**** Error *****\n" + ex);
-            return false;
         }
 
+    return null;
     }
 
 

@@ -26,5 +26,7 @@ public class Driver {
 
         System.out.println(mongo.getAllEntries());
 
+        System.out.println(mongo.getEntry("Joel"));
+
     }
 }
