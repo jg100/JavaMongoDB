@@ -22,6 +22,7 @@ public class MongoActions {
         this.mc = MongoClients.create(uri);
         this.mdb = this.mc.getDatabase(dbName);
         this.collection = this.mdb.getCollection(collectionName);
+
     }
 
     public boolean addEntry(DataEntry de) {
@@ -43,9 +44,15 @@ public class MongoActions {
         }
     }
 
-    /**
+
     public boolean findEntry(String name) {
         try {
+            List<Document> entries = this.getAllEntries();
+
+            for(Document doc : entries) {
+
+            }
+
 
         } catch(Exception ex) {
             System.out.println("**** Error *****\n" + ex);
@@ -53,10 +60,10 @@ public class MongoActions {
         }
 
     }
-     */
+
 
     public List<Document> getAllEntries() {
-        List<Document> list = new ArrayList<Document>();
+        List<Document> list = new ArrayList<>();
         //Returns a cursor for the collection
         FindIterable<Document> findIter = this.collection.find();
 
@@ -66,12 +73,8 @@ public class MongoActions {
             //Add value to final list that is returned
             list.add((Document) it.next());
         }
-
         return list;
     }
-
-
-
 
 
 }
