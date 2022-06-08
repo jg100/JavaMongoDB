@@ -57,12 +57,16 @@ public class MongoActions {
 
     public List<Document> getAllEntries() {
         List<Document> list = new ArrayList<Document>();
+        //Returns a cursor for the collection
         FindIterable<Document> findIter = this.collection.find();
-        Iterator it = findIter.iterator();
 
+        //Turn cursor into iterable and iterate through ea val.
+        Iterator it = findIter.iterator();
         while(it.hasNext()) {
+            //Add value to final list that is returned
             list.add((Document) it.next());
         }
+
         return list;
     }
 
