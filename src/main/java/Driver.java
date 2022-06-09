@@ -1,15 +1,12 @@
 import static com.mongodb.client.model.Filters.eq;
 
-import java.io.File;
-import java.util.Scanner;
+import org.vaadin.formbuilder.MainView;
 
-import backend.DataEntry;
-import backend.MongoActions;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoDatabase;
 public class Driver {
     public static void main(String[] args)  {
+        //new MainView();
+
+        /*
         String uri = "";
 
         try {
@@ -27,6 +24,6 @@ public class Driver {
         System.out.println(mongo.getAllEntries());
 
         System.out.println(mongo.getEntry("Joel"));
-
+         */
     }
 }

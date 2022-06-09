@@ -1,4 +1,4 @@
-package frontend;
+package org.vaadin.formbuilder;
 /**
  * Boiler plate example code from Vaadin
  */
@@ -12,6 +12,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
+@Route("")
 public class MainView extends VerticalLayout {
     public MainView() {
         VerticalLayout todosList = new VerticalLayout();
