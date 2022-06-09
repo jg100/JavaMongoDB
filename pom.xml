@@ -27,13 +27,6 @@
     <dependencyManagement>
         <!-- MongoDB -->
         <dependencies>
-            <dependency>
-                <groupId>org.mongodb</groupId>
-                <artifactId>mongodb-driver-sync</artifactId>
-                <version>4.6.0</version>
-            </dependency>
-
-
             <!-- Vaadin -->
             <dependency>
                 <groupId>com.vaadin</groupId>
@@ -46,6 +39,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.6.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-core</artifactId>
