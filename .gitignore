@@ -1,3 +1,4 @@
 cred.txt
 *.json
 *.js
+/target
