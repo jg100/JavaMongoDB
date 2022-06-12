@@ -1,0 +1,1 @@
+mongodb+srv://jgiannelli:Ginger99@cluster0.euqdsm4.mongodb.net/?retryWrites=true&w=majority

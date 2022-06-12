@@ -1,5 +1,6 @@
 package org.vaadin.example;
 
+import backend.MongoActions;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -8,6 +9,8 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+
+
 
 public class CustomerForm extends FormLayout {
 
@@ -21,6 +24,8 @@ public class CustomerForm extends FormLayout {
     private Binder<Customer> binder = new Binder<>(Customer.class);
     private MainView mainView;
     private CustomerService service = CustomerService.getInstance();
+
+    private MongoActions Mongo = new MongoActions(,"FormBuilder","Forms");
 
     public CustomerForm(MainView mainView) {
         this.mainView = mainView;
