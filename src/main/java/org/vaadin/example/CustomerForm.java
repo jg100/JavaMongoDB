@@ -1,6 +1,5 @@
 package org.vaadin.example;
 
-import backend.MongoActions;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -25,7 +24,7 @@ public class CustomerForm extends FormLayout {
     private MainView mainView;
     private CustomerService service = CustomerService.getInstance();
 
-    private MongoActions Mongo = new MongoActions(,"FormBuilder","Forms");
+    //private MongoActions Mongo = new MongoActions("mongodb+srv://jgiannelli:Ginger99@cluster0.euqdsm4.mongodb.net/?retryWrites=true&w=majority","FormBuilder","Forms");
 
     public CustomerForm(MainView mainView) {
         this.mainView = mainView;
