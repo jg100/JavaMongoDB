@@ -1,18 +1,24 @@
 package org.formbuilder.example;
 
 public class FormEntry {
+    private final Long id;
     private String fullName;
     private String phoneNumber;
     private String email;
     private String refSource;
     private String insurance;
 
-    public FormEntry(String fullName, String phoneNumber, String email, String refSource, String insurance) {
+    public FormEntry(Long id, String fullName, String phoneNumber, String email, String refSource, String insurance) {
+        this.id = id;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.refSource = refSource;
         this.insurance = insurance;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getFullName() {
