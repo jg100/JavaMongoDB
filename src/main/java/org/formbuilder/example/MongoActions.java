@@ -1,4 +1,4 @@
-package org.vaadin.example;
+package org.formbuilder.example;
 
 import static com.mongodb.client.model.Filters.eq;
 

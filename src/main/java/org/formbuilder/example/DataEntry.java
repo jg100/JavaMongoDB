@@ -1,4 +1,4 @@
-package org.vaadin.example;
+package org.formbuilder.example;
 
 import java.util.ArrayList;
 
