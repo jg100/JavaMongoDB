@@ -1,5 +1,7 @@
 package org.formbuilder.example;
 
+import java.util.ArrayList;
+
 public class FormEntry {
     private final Long id;
     private String fullName;
@@ -8,6 +10,8 @@ public class FormEntry {
     private String refSource;
     private String insurance;
 
+    private ArrayList<String> callNotes = new ArrayList<>();
+
     public FormEntry(Long id, String fullName, String phoneNumber, String email, String refSource, String insurance) {
         this.id = id;
         this.fullName = fullName;
@@ -15,6 +19,7 @@ public class FormEntry {
         this.email = email;
         this.refSource = refSource;
         this.insurance = insurance;
+
     }
 
     public Long getId() {
@@ -59,5 +64,9 @@ public class FormEntry {
 
     public void setInsurance(String insurance) {
         this.insurance = insurance;
+    }
+
+    public ArrayList<String> getCallNotes() {
+        return callNotes;
     }
 }

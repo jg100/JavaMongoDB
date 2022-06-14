@@ -27,14 +27,13 @@ public class MongoActions {
      * Adding and modifying entries
      */
 
-    public boolean addEntry(DataEntry de) {
+    public boolean addEntry(FormEntry de) {
         try {
 
             //Adds an entry by passing in a DataEntry object. May try to refactor to make code less coupled
             //Maybe just pass in the values.
-            Document doc = new Document("First Name", de.getFirstName())
-                    .append("Last Name", de.getLastName())
-                    .append("Call notes", de.getNotes());
+            Document doc = new Document("Name", de.getFullName())
+                    .append("Call notes", de.getCallNotes());
 
             this.collection.insertOne(doc);
             System.out.println("Document has been inserted to " + this.collection.toString());
