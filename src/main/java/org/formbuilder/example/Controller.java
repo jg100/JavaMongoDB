@@ -1,6 +1,7 @@
 package org.formbuilder.example;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +21,18 @@ public class Controller {
                                @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
 
         return new FormEntry(counter.incrementAndGet(), name, phone, email, refSource, insurance);
-
     }
+
+    @PostMapping("/new")
+    public boolean addEntry(@RequestParam(value = "name", defaultValue = "Joe") String name,
+                            @RequestParam(value = "phone", defaultValue = "000") String phone,
+                            @RequestParam(value = "email", defaultValue = "0@gmail") String email,
+                            @RequestParam(value = "refSource", defaultValue = "None") String refSource,
+                            @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
+
+        return true;
+    }
+
 
 
 
