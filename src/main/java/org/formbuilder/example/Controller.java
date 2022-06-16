@@ -7,6 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * CRUD API
+ * Create
+ *
+ * Update
+ *
+ * Delete
+ */
+
 @RestController
 public class Controller {
     private static final String temp = "Hello! %s";
@@ -30,8 +39,23 @@ public class Controller {
                             @RequestParam(value = "refSource", defaultValue = "None") String refSource,
                             @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
 
+        // Add new entry to mongo database
+
         return true;
     }
+
+    @PostMapping("/delete")
+    public boolean delete(@RequestParam(value = "name", defaultValue = "Joe") String name,
+                            @RequestParam(value = "phone", defaultValue = "000") String phone,
+                            @RequestParam(value = "email", defaultValue = "0@gmail") String email,
+                            @RequestParam(value = "refSource", defaultValue = "None") String refSource,
+                            @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
+
+       //Remove entry
+        return true;
+    }
+
+
 
 
 
