@@ -13,7 +13,7 @@ public class Controller {
     private final AtomicLong counter = new AtomicLong();
 
     //HTTP GET req mapped to function same as @RequestMapping(method=GET)
-    @GetMapping("/form")
+    @GetMapping("/entry")
     public FormEntry formentry(@RequestParam(value = "name", defaultValue = "Joe") String name,
                                @RequestParam(value = "phone", defaultValue = "000") String phone,
                                @RequestParam(value = "email", defaultValue = "0@gmail") String email,
