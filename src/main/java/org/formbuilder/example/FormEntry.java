@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 
+
+@Document(collation = "Forms")
 public class FormEntry {
     private final Long id;
     private String fullName;
