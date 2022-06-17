@@ -1,10 +1,9 @@
-# Getting Started with Vaadin 10 and later
+# Project Description
 
-This project contains a getting started tutorial for [Vaadin Flow](https://vaadin.com/flow).
+Create an API that communicates with MongoDB hosted on Atlas.
 
-This project has the end state of the tutorial, for implementing it step-by-step,
-see the [getting started tutorial](https://vaadin.com/tutorials/getting-started-with-flow).
+Used to manage the entries 
 
-Import it to the IDE of your choice as a Maven project.
+##Frontend: To be written in React js
 
-Run using `mvn jetty:run` and open [http://localhost:8080](http://localhost:8080) in browser.
+##Backend used Spring Web to create API and Spring Data Mongo to communicate with Atlas and create mongo collections.
