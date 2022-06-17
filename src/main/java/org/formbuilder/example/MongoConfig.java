@@ -10,6 +10,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.util.Collection;
+import java.util.Collections;
+
 @Configuration
 @EnableMongoRepositories(basePackages = "org.formbuilder.example")
 public class MongoConfig extends AbstractMongoClientConfiguration {
@@ -34,12 +37,19 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder().applyConnectionString(cstring).build();
 
-
-
-
-
-
+        return MongoClients.create(mongoClientSettings);
     }
 
+    /**
+     * Returns the base packages to scan for MongoDB mapped entities at startup. Will return the package name of the
+     * configuration class' (the concrete class, not this one here) by default. So if you have a com.acme.AppConfig
+     * extending MongoConfigurationSupport
+     * the base package will be considered com.acme unless the method is overridden to implement alternate behavior.
+     * @return
+     */
+    @Override
+    protected Collection<String> getMappingBasePackages() {
+        return Collections.singleton("org.formbuilder.example.Driver");
+    }
 
 }
