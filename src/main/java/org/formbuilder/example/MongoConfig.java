@@ -22,6 +22,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     protected String getDatabaseName() {
+
         return env.getProperty("mongo.database");
     }
 
@@ -33,6 +34,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
      */
     @Override
     public MongoClient mongoClient() {
+        System.out.println("*****Creating MongoClient from uri");
         ConnectionString cstring = new ConnectionString(env.getProperty("mongo.connection.string"));
 
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder().applyConnectionString(cstring).build();
@@ -49,6 +51,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
      */
     @Override
     protected Collection<String> getMappingBasePackages() {
+        System.out.println("***** getMappingPackages() called");
         return Collections.singleton("org.formbuilder.example.Driver");
     }
 
