@@ -10,14 +10,11 @@ import java.util.ArrayList;
 //Doc represents the collections in the MongoDB database
 
 @Document(collation = "Forms")
-@Entity
-@Data //Lombok
 @AllArgsConstructor //L
 @NoArgsConstructor//L
 @Getter
 @Setter
 public class FormEntry {
-
     @Id
     private final Long id;
     private String fullName;
