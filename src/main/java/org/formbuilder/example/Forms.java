@@ -1,22 +1,17 @@
 package org.formbuilder.example;
 
-import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 
 //Doc represents the collections in the MongoDB database
 
 @Document(collation = "Forms")
-@AllArgsConstructor //L
-@NoArgsConstructor//L
-@Getter
-@Setter
-public class FormEntry {
+public class Forms {
+
     @Id
-    private final Long id;
+    private String id;
     private String fullName;
     private String phoneNumber;
     private String email;
@@ -24,5 +19,13 @@ public class FormEntry {
     private String insurance;
     private ArrayList<String> callNotes = new ArrayList<>();
 
-
+    public Forms(String id, String fullName, String phoneNumber, String email, String refSource) {
+        super();
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.refSource = refSource;
+        this.insurance = insurance;
+        this.id = id;
+    }
 }
