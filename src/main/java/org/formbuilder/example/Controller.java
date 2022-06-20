@@ -1,58 +1,39 @@
 package org.formbuilder.example;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * CRUD API
  * Create
- *
  * Update
- *
  * Delete
  */
 
 @RestController
+@RequiredArgsConstructor
 public class Controller {
-    private static final String temp = "Hello! %s";
-    private final AtomicLong counter = new AtomicLong();
 
-    //HTTP GET req mapped to function same as @RequestMapping(method=GET)
-    @GetMapping("/entry")
-    public FormEntry formentry(@RequestParam(value = "name", defaultValue = "Joe") String name,
-                               @RequestParam(value = "phone", defaultValue = "000") String phone,
-                               @RequestParam(value = "email", defaultValue = "0@gmail") String email,
-                               @RequestParam(value = "refSource", defaultValue = "None") String refSource,
-                               @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
+    @Autowired
+    FormRepo formRepo;
 
-        return new FormEntry(counter.incrementAndGet(), name, phone, email, refSource, insurance);
-    }
-
-    @PostMapping("/new")
-    public boolean addEntry(@RequestParam(value = "name", defaultValue = "Joe") String name,
-                            @RequestParam(value = "phone", defaultValue = "000") String phone,
-                            @RequestParam(value = "email", defaultValue = "0@gmail") String email,
-                            @RequestParam(value = "refSource", defaultValue = "None") String refSource,
-                            @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
-
-        // Add new entry to mongo database
-
+    @PostMapping("/forms")
+    public boolean makeEntry() {
+        formRepo.save( new Forms(
+                "123eww78","MILO BORWN","4153164897","jgiannelli13@gmail.com","n/a"));
         return true;
     }
 
-    @PostMapping("/delete")
-    public boolean delete(@RequestParam(value = "name", defaultValue = "Joe") String name,
-                            @RequestParam(value = "phone", defaultValue = "000") String phone,
-                            @RequestParam(value = "email", defaultValue = "0@gmail") String email,
-                            @RequestParam(value = "refSource", defaultValue = "None") String refSource,
-                            @RequestParam(value = "insurance", defaultValue = "UBH") String insurance) {
-
-       //Remove entry
-        return true;
+    //Find by name
+    @GetMapping("/find")
+    public Forms findByName(@RequestParam(value = "fullName") String fullName) {
+        return formRepo.findItemByName(fullName);
     }
 
 }
+
