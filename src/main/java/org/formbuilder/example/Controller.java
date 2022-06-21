@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -22,6 +23,12 @@ public class Controller {
     @Autowired
     FormRepo formRepo;
 
+    @GetMapping("/test")
+    public String test() {
+        return "API UP AND RUNNING";
+    }
+
+
     @PostMapping("/forms")
     public boolean makeEntry() {
         formRepo.save( new Forms(
@@ -30,9 +37,16 @@ public class Controller {
     }
 
     //Find by name
+
+    @GetMapping("/all")
+    public List<Forms> findAll() {
+        System.out.println("\ngetAll called\n");
+        return formRepo.findAll();
+    }
+
     @GetMapping("/find")
-    public Forms findByName(@RequestParam(value = "fullName") String fullName) {
-        return formRepo.findItemByName(fullName);
+    public Forms findByName(@RequestParam(name = "name")String name) {
+        return formRepo.findByName(name);
     }
 
 }

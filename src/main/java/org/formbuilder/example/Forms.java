@@ -21,11 +21,11 @@ public class Forms {
 
     public Forms(String id, String fullName, String phoneNumber, String email, String refSource) {
         super();
+        this.id = id;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.refSource = refSource;
-        this.insurance = insurance;
-        this.id = id;
+        this.insurance = refSource;
     }
 }

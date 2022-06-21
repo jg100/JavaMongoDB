@@ -17,11 +17,7 @@ import java.util.List;
 public interface FormRepo extends MongoRepository<Forms, String> {
 
     @Query("{fullName:'?0'}")
-    Forms findItemByName(String fullName);
+    Forms findByName(String name);
 
-    @Query(value="{category:'?0'}", fields="{'name' : 1, 'quantity' : 1}")
-    List<Forms> findAll(String category);
-
-    public long count();
 
 }
