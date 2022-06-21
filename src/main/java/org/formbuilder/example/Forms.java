@@ -1,5 +1,6 @@
 package org.formbuilder.example;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,7 +8,8 @@ import java.util.ArrayList;
 
 //Doc represents the collections in the MongoDB database
 
-@Document(collation = "Forms")
+@Document(collection = "forms")
+@Data
 public class Forms {
 
     @Id
