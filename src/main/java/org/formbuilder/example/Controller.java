@@ -23,10 +23,8 @@ public class Controller {
     @Autowired
     FormRepo formRepo;
 
-
-
-    @PostMapping("/forms")
-    public String makeEntry(
+    @PostMapping("/create")
+    public String create(
             @RequestParam(name = "id") String id,
             @RequestParam(name = "fullName") String fullName,
             @RequestParam(name = "phone") String phone,
@@ -36,11 +34,19 @@ public class Controller {
 
         try {
             formRepo.save(new Forms(id ,fullName ,phone ,email ,refSource));
-
             return "Successfully added to MongoDB";
         } catch(Exception ex) {
             return "An error has occured:\n" + ex;
         }
+    }
+
+    //update
+
+
+    //delete
+    @DeleteMapping("/delete")
+    public boolean delete() {
+        return false;
     }
 
 
