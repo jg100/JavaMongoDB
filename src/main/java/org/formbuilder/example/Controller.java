@@ -23,17 +23,30 @@ public class Controller {
     @Autowired
     FormRepo formRepo;
 
-    @GetMapping("/test")
-    public String test() {
-        return "API UP AND RUNNING";
-    }
 
 
     @PostMapping("/forms")
-    public boolean makeEntry() {
-        formRepo.save( new Forms(
-                "123eww78","MILO BORWN","4153164897","jgiannelli13@gmail.com","n/a"));
-        return true;
+    public String makeEntry(
+            @RequestParam(name = "id") String id,
+            @RequestParam(name = "fullName") String fullName,
+            @RequestParam(name = "phone") String phone,
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "refSource") String refSource
+    ) {
+
+        try {
+            formRepo.save(new Forms(id ,fullName ,phone ,email ,refSource));
+
+            return "Successfully added to MongoDB";
+        } catch(Exception ex) {
+            return "An error has occured:\n" + ex;
+        }
+    }
+
+
+    @GetMapping("/test")
+    public String test() {
+        return "API UP AND RUNNING";
     }
 
     //Find by name
