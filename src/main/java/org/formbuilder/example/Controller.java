@@ -43,9 +43,10 @@ public class Controller {
     //update
 
 
-    //delete
-    @DeleteMapping("/delete")
-    public boolean delete() {
+    //delete by name
+    @DeleteMapping("/deletebyname")
+    public boolean delete(@RequestParam(name = "fullName") String fullName) {
+        formRepo.delete(formRepo.findByName(fullName));
         return false;
     }
 
