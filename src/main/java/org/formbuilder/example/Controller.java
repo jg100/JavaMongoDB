@@ -43,11 +43,17 @@ public class Controller {
     //update
 
 
+
     //delete by name
     @DeleteMapping("/deletebyname")
-    public boolean delete(@RequestParam(name = "fullName") String fullName) {
-        formRepo.delete(formRepo.findByName(fullName));
-        return false;
+    public ResponseEntity delete(@RequestParam(name = "fullName") String fullName) {
+        try {
+            formRepo.delete(formRepo.findByName(fullName));
+            return (ResponseEntity) ResponseEntity.accepted();
+        } catch(Exception ex) {
+            System.out.println(ex);
+            return (ResponseEntity) ResponseEntity.notFound();
+        }
     }
 
 
